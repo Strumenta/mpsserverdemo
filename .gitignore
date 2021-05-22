@@ -7,4 +7,6 @@ artifacts
 .gradle
 .mps/workspace.xml
 .mps/terminal.xml
+build**/.DS_Store
 build
+**/.DS_Store
