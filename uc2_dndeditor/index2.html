@@ -1,0 +1,100 @@
+<html>
+<head>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js'></script>
+<style>
+#canvas {
+	width: 80%;
+	height: 80%;
+	border: 2px black solid;
+	background: #eee;
+}
+div.action {
+	padding: 5px;
+	background: #ccccee;
+	border: 1px #888 solid;
+	display: inline;
+}
+</style>
+</head>
+<body>
+
+<div id="canvas">
+	<div id="act1" class="action" style="position: absolute; left: 100px; top:50px">
+		Action 1
+	</div>	
+	<div id="act2" class="action" style="position: absolute; left: 200px; top:350px">
+		Action 2
+	</div>
+</div>
+
+<script>
+function makeDraggable(element) {
+   var startX, startY;
+   var maxX, maxY;
+
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    startX = e.clientX;
+    startY = e.clientY;
+    minX = document.getElementById("canvas").getBoundingClientRect().x + 5;
+    minY = document.getElementById("canvas").getBoundingClientRect().y + 5;
+    maxX = document.getElementById("canvas").getBoundingClientRect().width - element.getBoundingClientRect().width - 5;
+    maxY = document.getElementById("canvas").getBoundingClientRect().height - element.getBoundingClientRect().height - 5;
+
+    console.log("maxX", maxX);
+    console.log("maxY", maxY);
+   
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    var currX = e.clientX;
+    var currY = e.clientY;
+    var deltaX = currX - startX;
+    var deltaY = currY - startY;
+    startX = currX;
+    startY = currY;
+    var currLeftStr = element.style.left;
+    var currLeftValue = parseInt(currLeftStr.substr(0, currLeftStr.length - 2));  
+    var newLeftValue = currLeftValue + deltaX;
+    if (newLeftValue < minX) {
+    	newLeftValue = minX;
+    }
+    if (newLeftValue > maxX) {
+    	newLeftValue = maxX;
+    }
+    console.log("newLeftValue", newLeftValue);
+    element.style.left = newLeftValue + "px";
+    var currTopStr = element.style.top;
+    var currTopValue = parseInt(currTopStr.substr(0, currTopStr.length - 2));  
+    var newTopValue = currTopValue + deltaY;
+    if (newTopValue < minY) {
+    	newTopValue = minY;
+    }
+    if (newTopValue > maxY) {
+    	newTopValue = maxY;
+    }
+    element.style.top = newTopValue + "px";    
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+
+	element.onmousedown = dragMouseDown;
+}	
+
+makeDraggable(document.getElementById("act1"));
+makeDraggable(document.getElementById("act2"));
+
+</script>
+</body>
+</html>
