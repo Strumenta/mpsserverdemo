@@ -116,7 +116,16 @@ function fillTable(data, idsToIndex) {
 			var cell = document.createElement("td");
 			var input = document.createElement("input");
 			input.type = "checkbox";
+			input.setAttribute("data-source-id", c.id.regularId);
+			input.setAttribute("data-target-id", data.children[j].id.regularId);
 			input.checked = connectedIndexes.indexOf(j) != -1;
+			input.addEventListener('change', function() {
+			  if (this.checked) {
+			    console.log("Checkbox is checked..");
+			  } else {
+			    console.log("Checkbox is not checked..");
+			  }
+			});
 			cell.appendChild(input);
 			newRow.appendChild(cell);
 		}
@@ -147,7 +156,7 @@ function drawDiagram(data) {
 		if (c.concept == "com.strumenta.workflow.Start") {
 			g.setNode("node_"+c.id.regularId,    { shape: "circle", label: "" });
 		} else if (c.concept == "com.strumenta.workflow.Action") {
-			g.setNode("node_"+c.id.regularId,    { label: c.properties["description"],  width: 80, height: 10 });
+			g.setNode("node_"+c.id.regularId,    { label: c.properties["description"] });
 		} else if (c.concept == "com.strumenta.workflow.End") {
 			g.setNode("node_"+c.id.regularId,    { shape: "circle", label: "", style: "fill: #333" });
 		} else {
@@ -199,6 +208,28 @@ function loadModel() {
 	}
 }
 
+function reloadDiagram() {
+	const Http = new XMLHttpRequest();
+	const url='http://localhost:2904/models/' + modelName + '/6439756077573116110';
+	Http.open("GET", url);
+	Http.send();
+
+	var done = false;
+
+	Http.onreadystatechange = (e) => {
+	  if (done) {
+	  	return
+	  }		
+	  	var text = Http.responseText;
+	  	if (text.length < 2) return;
+	  	var data = JSON.parse(Http.responseText).value;
+	  	window.data = data;
+
+		drawDiagram(data);
+		done = true;
+	}
+}
+
 loadModel();
 
 let ws = new WebSocket("ws://localhost:2904/socket");
@@ -206,6 +237,9 @@ ws.onopen = function (event) {
 	ws.onmessage = function (event) {
 	  let msg = JSON.parse(event.data)
 	  console.log("Received", msg.type, msg);
+	  if (msg.type == "AnswerPropertyChange") {
+	  	reloadDiagram();
+	  }
 	}
 };
 
