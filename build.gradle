@@ -2,7 +2,13 @@ plugins {
 	id 'com.strumenta.mpswizard' version '1.0.3'
 }
 
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
 mpsWizard {
 	mpsVersion = "2020.3.3"
 	useMPSServer = true
+	MPSServerVersion = "2020.3-6-SNAPSHOT"
 }

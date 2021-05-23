@@ -88,6 +88,7 @@ function fillTable(data, idsToIndex) {
 	}
 	for (var i=0;i<data.children.length;i++) {
 		var c = data.children[i];
+		var currentId = c.id.regularId;
 		var newRow = document.createElement("tr");
 
 		addCell(newRow, c.properties["id"]);
@@ -116,14 +117,14 @@ function fillTable(data, idsToIndex) {
 			var cell = document.createElement("td");
 			var input = document.createElement("input");
 			input.type = "checkbox";
-			input.setAttribute("data-source-id", c.id.regularId);
+			input.setAttribute("data-source-id", currentId);
 			input.setAttribute("data-target-id", data.children[j].id.regularId);
 			input.checked = connectedIndexes.indexOf(j) != -1;
-			input.addEventListener('change', function() {
+			input.addEventListener('change', function(e) {
 			  if (this.checked) {
-			    console.log("Checkbox is checked..");
+			    link(e.target.getAttribute("data-source-id"), e.target.getAttribute("data-target-id"));
 			  } else {
-			    console.log("Checkbox is not checked..");
+			    unlink(e.target.getAttribute("data-source-id"), e.target.getAttribute("data-target-id"));
 			  }
 			});
 			cell.appendChild(input);
@@ -230,6 +231,40 @@ function reloadDiagram() {
 	}
 }
 
+function link(sourceId, targetId) {
+	ws.send(JSON.stringify({
+		type: "ExecuteAction",
+		node: {
+			model: modelName,
+			id: {
+				regularId: '6439756077573116110'
+			}
+		},
+		action: "link",
+		params: {
+			'sourceId': sourceId,
+			'targetId': targetId
+		}
+	}));
+}
+
+function unlink(sourceId, targetId) {
+	ws.send(JSON.stringify({
+		type: "ExecuteAction",
+		node: {
+			model: modelName,
+			id: {
+				regularId: '6439756077573116110'
+			}
+		},
+		action: "unlink",
+		params: {
+			'sourceId': sourceId,
+			'targetId': targetId
+		}
+	}));
+}
+
 loadModel();
 
 let ws = new WebSocket("ws://localhost:2904/socket");
@@ -237,7 +272,7 @@ ws.onopen = function (event) {
 	ws.onmessage = function (event) {
 	  let msg = JSON.parse(event.data)
 	  console.log("Received", msg.type, msg);
-	  if (msg.type == "AnswerPropertyChange") {
+	  if (msg.type == "AnswerPropertyChange" || msg.type == "ExecuteActionAnswer") {
 	  	reloadDiagram();
 	  }
 	}
