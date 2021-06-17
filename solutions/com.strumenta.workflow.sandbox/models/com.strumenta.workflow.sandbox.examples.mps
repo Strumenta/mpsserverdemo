@@ -39,19 +39,22 @@
     <node concept="3qHZei" id="5_uB0y3UpNh" role="3qIkQ5">
       <property role="3qHZej" value="list topics" />
       <property role="3qHPfN" value="STE-1" />
-      <node concept="3qIkQj" id="524SvBgnJSa" role="3qIkQm">
+      <node concept="3qIkQj" id="1U_J2td9ssJ" role="3qIkQm">
         <ref role="3qIkQC" node="5_uB0y3UpNp" />
       </node>
     </node>
     <node concept="3qHZei" id="5_uB0y3UpNp" role="3qIkQ5">
       <property role="3qHZej" value="prepare slides" />
-      <node concept="3qIkQj" id="5_uB0y3V0xj" role="3qIkQm">
+      <node concept="3qIkQj" id="1U_J2td9ssN" role="3qIkQm">
         <ref role="3qIkQC" node="5_uB0y3UpNz" />
+      </node>
+      <node concept="3qIkQj" id="1U_J2td9ssR" role="3qIkQm">
+        <ref role="3qIkQC" node="5_uB0y3UpNJ" />
       </node>
     </node>
     <node concept="3qHZei" id="5_uB0y3UpNz" role="3qIkQ5">
       <property role="3qHZej" value="prepare demos" />
-      <node concept="3qIkQj" id="5_uB0y3V0xl" role="3qIkQm">
+      <node concept="3qIkQj" id="1U_J2td8YP5" role="3qIkQm">
         <ref role="3qIkQC" node="5_uB0y3UpNJ" />
       </node>
     </node>
