@@ -32,14 +32,14 @@
   <node concept="3qIkQ1" id="5_uB0y3U93e">
     <property role="TrG5h" value="PreparingPresentation" />
     <node concept="3qIkQ7" id="5_uB0y3U93f" role="3qIkQ5">
-      <node concept="3qIkQj" id="524SvBgnJS8" role="3qIkQm">
+      <node concept="3qIkQj" id="3BsN6$E6ba0" role="3qIkQm">
         <ref role="3qIkQC" node="5_uB0y3UpNh" />
       </node>
     </node>
     <node concept="3qHZei" id="5_uB0y3UpNh" role="3qIkQ5">
       <property role="3qHZej" value="list topics" />
       <property role="3qHPfN" value="STE-1" />
-      <node concept="3qIkQj" id="1U_J2td9ssJ" role="3qIkQm">
+      <node concept="3qIkQj" id="3BsN6$E6b9Y" role="3qIkQm">
         <ref role="3qIkQC" node="5_uB0y3UpNp" />
       </node>
     </node>
@@ -47,9 +47,6 @@
       <property role="3qHZej" value="prepare slides" />
       <node concept="3qIkQj" id="1U_J2td9ssN" role="3qIkQm">
         <ref role="3qIkQC" node="5_uB0y3UpNz" />
-      </node>
-      <node concept="3qIkQj" id="1U_J2td9ssR" role="3qIkQm">
-        <ref role="3qIkQC" node="5_uB0y3UpNJ" />
       </node>
     </node>
     <node concept="3qHZei" id="5_uB0y3UpNz" role="3qIkQ5">
