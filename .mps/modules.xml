@@ -3,8 +3,6 @@
   <component name="MPSProject">
     <projectModules>
       <modulePath path="$PROJECT_DIR$/languages/com.strumenta.workflow/com.strumenta.workflow.mpl" folder="languages" />
-      <modulePath path="$PROJECT_DIR$/solutions/com.strumenta.workflow.build/com.strumenta.workflow.build.msd" folder="build" />
-      <modulePath path="$PROJECT_DIR$/solutions/com.strumenta.workflow.buildmeta/com.strumenta.workflow.buildmeta.msd" folder="build" />
       <modulePath path="$PROJECT_DIR$/solutions/com.strumenta.workflow.mpsserverextensions/com.strumenta.workflow.mpsserverextensions.msd" folder="mpsserver" />
       <modulePath path="$PROJECT_DIR$/solutions/com.strumenta.workflow.sandbox/com.strumenta.workflow.sandbox.msd" folder="languages" />
     </projectModules>
