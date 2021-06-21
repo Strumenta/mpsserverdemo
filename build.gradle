@@ -1,6 +1,6 @@
 plugins {
-	id 'com.strumenta.mpswizard' version '1.0.5-SNAPSHOT'
-	id 'com.strumenta.mpsserver' version '1.1.17-SNAPSHOT'
+	id 'com.strumenta.mpswizard' version '1.0.5'
+	id 'com.strumenta.mpsserver' version '1.1.17'
 }
 
 repositories {
@@ -13,11 +13,11 @@ mpsWizard {
 	mpsVersion = "2020.3.3"
 	useMPSServer = true
 	
-	MPSServerVersion = "2020.3-13-SNAPSHOT"
+	MPSServerVersion = "2020.3-13"
 }
 
 mpsserver {
 	makeProject = true
-	mpsServerVersion = "2020.3-13-SNAPSHOT"
+	mpsServerVersion = "2020.3-13"
 	extensionsPath = "com.strumenta.workflow"
 }
