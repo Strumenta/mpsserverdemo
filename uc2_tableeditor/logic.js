@@ -128,7 +128,12 @@ function loadModel() {
     const answer = fetch(`http://localhost:2904/models/${modelName}/6439756077573116110`);
     answer.then((value => {
         value.text().then((text)=> {
-            const data = JSON.parse(text).value;
+            const msg = JSON.parse(text)            
+            if (msg["success"] === false) {
+                alert("data not obtained: " + msg["message"]);
+                return;
+            }
+            const data = msg.value;
             document.getElementById("title").innerHTML = data.properties["name"];
             const idsToIndex = calculateIdsToIndex(data);
             createGraph(data);
