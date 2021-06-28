@@ -1,6 +1,6 @@
 plugins {
-	id 'com.strumenta.mpswizard' version '1.0.6-SNAPSHOT'
-	id 'com.strumenta.mpsserver' version '1.1.18-SNAPSHOT'
+	id 'com.strumenta.mpswizard' version '1.0.6'
+	id 'com.strumenta.mpsserver' version '1.1.18'
 }
 
 repositories {
