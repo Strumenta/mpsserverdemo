@@ -13,11 +13,11 @@ mpsWizard {
 	mpsVersion = "2020.3.3"
 	useMPSServer = true
 	
-	MPSServerVersion = "2020.3-14"
+	MPSServerVersion = "2020.3-27"
 }
 
 mpsserver {
 	makeProject = true
-	mpsServerVersion = "2020.3-14"
+	mpsServerVersion = "2020.3-27"
 	extensionsPath = "com.strumenta.workflow"
 }
