@@ -1,5 +1,20 @@
+:root {
+    --blue: #69a1c6;
+    --greenfill: #80aab5;
+    --background: #F3ECEC;
+    --darkgreen: #197e85;
+    --grassgreen: #197e85 ;
+    --background: #f8f8fa;
+
+}
+html {
+    color: var(--darkgreen);
+    background-color: var(--background)
+}
+
 svg {
-    border: 1px solid #999;
+    border: 1px solid var(--darkgreen);
+    border-radius: 2%;
     overflow: hidden;
 }
 
@@ -10,20 +25,20 @@ svg {
 .node rect,
 .node circle,
 .node ellipse {
-    stroke: #333;
-    fill: #fff;
+    stroke: var(--darkgreen);
+    fill: var(--greenfill);
     stroke-width: 1.5px;
 }
 
 .cluster rect {
-    stroke: #333;
-    fill: #000;
+    stroke: var(--darkgreen);
+    fill: var(--greenfill);
     fill-opacity: 0.1;
     stroke-width: 1.5px;
 }
 
 .edgePath path.path {
-    stroke: #333;
+    stroke: var(--darkgreen);
     stroke-width: 1.5px;
     fill: none;
 }
