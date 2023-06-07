@@ -1,6 +1,29 @@
+:root {
+    --blue: #69a1c6;
+    --greenfill: #80aab5;
+    --background: #F3ECEC;
+    --darkgreen: #197e85;
+    --grassgreen: #197e85;
+    --background: #f8f8fa;
+
+}
+
+html {
+    color: var(--darkgreen);
+    background-color: var(--background);
+    height: 100%;
+    width: 100%;
+}
+
+td {
+    border-radius: 50%;
+}
+
 svg {
-    border: 1px solid #999;
+    border: 1px solid var(--darkgreen);
+    border-radius: 2%;
     overflow: hidden;
+
 }
 
 .node {
@@ -10,29 +33,34 @@ svg {
 .node rect,
 .node circle,
 .node ellipse {
-    stroke: #333;
-    fill: #fff;
+    stroke: var(--darkgreen);
+    fill: var(--greenfill);
     stroke-width: 1.5px;
 }
 
 .cluster rect {
-    stroke: #333;
-    fill: #000;
+    stroke: var(--darkgreen);
+    fill: var(--greenfill);
     fill-opacity: 0.1;
     stroke-width: 1.5px;
 }
 
 .edgePath path.path {
-    stroke: #333;
+    stroke: var(--darkgreen);
     stroke-width: 1.5px;
     fill: none;
 }
 
-table, th, td {
-    border: 1px solid black;
+table,
+th,
+td {
+    border: 1px solid var(--darkgreen);
+    overflow: hidden;
 }
+
 table {
     margin: 10px;
+    border-radius: 2%;
 }
 
 td {
@@ -40,6 +68,6 @@ td {
 }
 
 [contenteditable]:focus {
-    background: #efefef;
-    outline: 2px solid blue;
+    background: var(--greenfill);
+    outline: 2px solid var(--blue);
 }

@@ -104,7 +104,7 @@ function createGraph(data) {
         } else if (isActionNode(child)) {
             g.setNode("node_" + child.id.regularId, {label: child.properties["description"], width: 80, height: 10});
         } else if (isEndNode(child)) {
-            g.setNode("node_" + child.id.regularId, {shape: "circle", label: "", style: "fill: #333"});
+            g.setNode("node_" + child.id.regularId, {shape: "circle", label: "", style: "fill: #80aab5"});
         } else {
             // node not to be represented in the graph
         }
